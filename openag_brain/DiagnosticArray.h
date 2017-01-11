@@ -56,7 +56,7 @@ namespace openag_brain
     }
 
     const char * getType(){ return "openag_brain/DiagnosticArray"; };
-    const char * getMD5(){ return "a6fb87039bb4ecbc6309eae0715be6fc"; };
+    const char * getMD5(){ return "f8ed33cf10984329a1cf10f77b980639"; };
 
   };
 

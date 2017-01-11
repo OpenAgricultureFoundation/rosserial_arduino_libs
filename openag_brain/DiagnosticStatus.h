@@ -14,7 +14,7 @@ namespace openag_brain
     public:
       int8_t level;
       const char* name;
-      uint8_t status;
+      uint8_t code;
       enum { OK = 0 };
       enum { WARN = 1 };
       enum { ERROR = 2 };
@@ -23,7 +23,7 @@ namespace openag_brain
     DiagnosticStatus():
       level(0),
       name(""),
-      status(0)
+      code(0)
     {
     }
 
@@ -42,8 +42,8 @@ namespace openag_brain
       offset += 4;
       memcpy(outbuffer + offset, this->name, length_name);
       offset += length_name;
-      *(outbuffer + offset + 0) = (this->status >> (8 * 0)) & 0xFF;
-      offset += sizeof(this->status);
+      *(outbuffer + offset + 0) = (this->code >> (8 * 0)) & 0xFF;
+      offset += sizeof(this->code);
       return offset;
     }
 
@@ -67,13 +67,13 @@ namespace openag_brain
       inbuffer[offset+length_name-1]=0;
       this->name = (char *)(inbuffer + offset-1);
       offset += length_name;
-      this->status =  ((uint8_t) (*(inbuffer + offset)));
-      offset += sizeof(this->status);
+      this->code =  ((uint8_t) (*(inbuffer + offset)));
+      offset += sizeof(this->code);
      return offset;
     }
 
     const char * getType(){ return "openag_brain/DiagnosticStatus"; };
-    const char * getMD5(){ return "3ea7c25ffc4482443f0340eac0c861a5"; };
+    const char * getMD5(){ return "51483619a2e090b92bc2ed312361df98"; };
 
   };
 
