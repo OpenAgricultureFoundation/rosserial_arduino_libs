@@ -1,3 +1,5 @@
+# DEPRECATED.
+
 Rosserial Arduino Libraries
 ===========================
 
